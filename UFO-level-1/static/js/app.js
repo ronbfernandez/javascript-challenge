@@ -17,3 +17,17 @@ var populate = (dataInput) => {
         )
     });
 }
+
+//Populate table
+populate(data);
+
+//Filter by attribute
+button.on("click", () => {
+    d3.event.preventDefault();
+    var inputDate = inputField1.property("value").trim();
+    var inputCity = inputField2.property("value").toLowerCase().trim();
+
+    //filtering by fields
+    var filterDate = data.filter(data => data.datetime === inputDate);
+    console.log(filterDate)
+})
