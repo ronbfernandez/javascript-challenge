@@ -35,6 +35,26 @@ button.on("click", () => {
     var filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity);
     console.log(filterData)
 
+    // Adding filter to table
+    tbody.html("");
+
+    let response = {
+        filterData, filterCity, filterDate
+    }
+
+    if (response.filterData.length !==0) {
+        populate(filterData);
+    }
+
+        else if (response.filterData.lenth === 0 && ((response.filterCity.lenth !== 0 || response.filterDate.lenth !== 0))) {
+            populate(filterCity) || populate(filterDate);
+
+        }
+
+        else {
+                tbody.append("tr").append("td").text("No results found!");
+        }
 
 
 })
+
