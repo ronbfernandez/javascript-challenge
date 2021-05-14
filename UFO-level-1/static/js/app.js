@@ -58,3 +58,9 @@ button.on("click", () => {
 
 })
 
+resetbtn.on("click", () => {
+    tbody.html("");
+    populate(data)
+    console.log("Table reset")
+})
+ 
