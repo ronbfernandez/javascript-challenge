@@ -25,31 +25,21 @@ populate(data);
 button.on("click", () => {
     d3.event.preventDefault();
     var inputDate = inputField1.property("value").trim();
-    var inputCity = inputField2.property("value").toLowerCase().trim();
 
     //filtering by fields
     var filterDate = data.filter(data => data.datetime === inputDate);
     console.log(filterDate)
-    var filterCity = data.filter(data => data.city === inputCity);
-    console.log(filterCity)
-    var filterData = data.filter(data => data.datetime === inputDate && data.city === inputCity);
-    console.log(filterData)
 
     // Adding filter to table
     tbody.html("");
 
     let response = {
-        filterData, filterCity, filterDate
+         filterDate
     }
 
-    if (response.filterData.length !==0) {
-        populate(filterData);
+    if (response.filterDate.length !==0) {
+        populate(filterDate);
     }
-
-        else if (response.filterData.lenth === 0 && ((response.filterCity.lenth !== 0 || response.filterDate.lenth !== 0))) {
-            populate(filterCity) || populate(filterDate);
-
-        }
 
         else {
                 tbody.append("tr").append("td").text("No results found!");
