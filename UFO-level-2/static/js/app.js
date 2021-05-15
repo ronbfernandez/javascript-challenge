@@ -45,6 +45,7 @@ button.on("click", () => {
                 tbody.append("tr").append("td").text("No results found!");
         }
 
+
 })
 
 resetbtn.on("click", () => {
